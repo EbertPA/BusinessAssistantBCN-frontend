@@ -82,3 +82,9 @@
         </div>
     </nav>
 </header>
+
+
+<ol class="breadcrumb ms-2" style="height: 10px;">
+    <li *ngFor="let value of breadcrump" class="breadcrumb-item pointer" [routerLink]="'/'+value" (click)="changeBc(value)">{{value}}</li>
+</ol>
+

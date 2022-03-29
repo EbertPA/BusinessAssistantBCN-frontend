@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-my-environment-page',
@@ -14,9 +16,17 @@ export class MyEnvironmentPageComponent implements OnInit {
   comercialMarket = "assets/img/shop.png";
   fairMarkets = "assets/img/cans.png"
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private bc: CommonService
+  ) { }
 
   ngOnInit(): void {
+    //breadcrump
+    let path = this.route.routeConfig?.path
+    if(!this.bc.breadcrump.includes(path!)){
+      this.bc.breadcrump.push(path!)
+    }
   }
 
 }

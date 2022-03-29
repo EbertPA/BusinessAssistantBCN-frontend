@@ -5,6 +5,8 @@ import { LargeStablishmentsService } from 'src/app/services/large-stablishments.
 import { LargeStablishmentModel } from '../../../models/large-stablishment.model';
 import { LoginFormComponent } from 'src/app/modules/login/login-form/login-form.component';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { CommonService } from 'src/app/services/common.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -20,6 +22,8 @@ export class LargeStablishmentsDetailPageComponent implements OnInit {
     private auth: AuthenticationService,
     private modalService: NgbModal, 
     private fb:FormBuilder,
+    private _bc: CommonService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +32,13 @@ export class LargeStablishmentsDetailPageComponent implements OnInit {
         this.LargeEstablishmentsData = resp.results;
         console.log("resp desde detail page: ",resp.results)
       });
+
+    //breadcrump
+    let path = this.route.routeConfig?.path
+    if(!this._bc.breadcrump.includes(path!)){
+      this._bc.breadcrump.push(path!)
+    }
+    
   }
 
   ngOnDestroy() {
