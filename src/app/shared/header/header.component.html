@@ -42,7 +42,7 @@
             </ul>
         </div>
         <div class="container-fluid nav-spacing">
-            <a routerLink='/home' class="navbar-brand">{{'components.header.section1.title' | translate}}</a>
+            <a routerLink='/home' class="navbar-brand" (click)="changeBc('home')">{{'components.header.section1.title' | translate}}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
