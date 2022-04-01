@@ -36,19 +36,14 @@ export class LargeStablishmentsPageComponent implements OnInit, OnDestroy {
     return this.largeStablishmentsService.activitiesSelected;
   }
 
-  constructor(private router: Router,
-    private activatedRoute: ActivatedRoute,
+  constructor(
     private largeStablishmentsService: LargeStablishmentsService,
-    private commonservice: CommonService) { }
+    private commonservice: CommonService
+    ) { }
 
   ngOnInit(): void {
     this.loadMasterData();
     this.largeStablishmentsService.initializeSelected();
-    //breadcrump
-    let path = this.activatedRoute.routeConfig?.path
-    if(!this.commonservice.breadcrump.includes(path!)){
-      this.commonservice.breadcrump.push(path!)
-    }
   }
 
   ngOnDestroy() {

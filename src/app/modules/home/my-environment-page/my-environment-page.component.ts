@@ -16,17 +16,9 @@ export class MyEnvironmentPageComponent implements OnInit {
   comercialMarket = "assets/img/shop.png";
   fairMarkets = "assets/img/cans.png"
 
-  constructor(
-    private route: ActivatedRoute,
-    private bc: CommonService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    //breadcrump
-    let path = this.route.routeConfig?.path
-    if(!this.bc.breadcrump.includes(path!)){
-      this.bc.breadcrump.push(path!)
-    }
   }
 
 }

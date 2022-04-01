@@ -25,7 +25,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.user ? this.auth.setUserLogged(true) : this.auth.setUserLogged(false)   // To be replaced when user login works
-    this.breadcrump = this.bc.breadcrump
+    this.route.url.subscribe(url => {
+      let path = url[0].path
+      let num = this.bc.breadcrump.indexOf(path)
+      let newbread = this.bc.breadcrump.slice(0, 1+num)
+      this.breadcrump = newbread
+    })
   }
 
   // This function opens login component modal service

@@ -22,8 +22,6 @@ export class LargeStablishmentsDetailPageComponent implements OnInit {
     private auth: AuthenticationService,
     private modalService: NgbModal, 
     private fb:FormBuilder,
-    private _bc: CommonService,
-    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -32,12 +30,6 @@ export class LargeStablishmentsDetailPageComponent implements OnInit {
         this.LargeEstablishmentsData = resp.results;
         console.log("resp desde detail page: ",resp.results)
       });
-
-    //breadcrump
-    let path = this.route.routeConfig?.path
-    if(!this._bc.breadcrump.includes(path!)){
-      this._bc.breadcrump.push(path!)
-    }
     
   }
 
